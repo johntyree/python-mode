@@ -187,4 +187,13 @@ fun! pymode#TrimWhiteSpace() "{{{
 endfunction "}}}
 
 
+fun! pymode#Toggle(toggle, msg) "{{{
+    let {a:toggle} = {a:toggle} ? 0 : 1
+    if {a:toggle}
+        echomsg a:msg." enabled"
+    else
+        echomsg a:msg." disabled"
+    endif
+endfunction "}}}
+
 " vim: fdm=marker:fdl=0

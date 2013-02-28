@@ -54,6 +54,8 @@ PythonMode. These options should be set in your vimrc.
 
 |'pymode_run_key'|                  Key for run python code
 
+|'pymode_run_show_result'|          Show stdout from run code script
+
 |'pymode_lint'|                     Turns off pylint script
 
 |'pymode_lint_checker'|             Switch code checkers (pylint, pyflakes, pep8, mccabe)
@@ -174,6 +176,13 @@ If this option is set to 0 then run script is disabled.
 Default: '<leader>r'.
 
 Set key for run python code.
+
+------------------------------------------------------------------------------
+                                                      *'pymode_run_show_result'*
+Values: 0 or 1.
+Default: 1.
+
+If this option is set to 0 then results of run script will not be shown.
 
 ------------------------------------------------------------------------------
                                                                  *'pymode_lint'*
@@ -431,9 +440,12 @@ iM                Operation with inner function or method.
 
 *:PyLintAuto*                                                         *PyLintAuto*
     Automatically fix PEP8 errors in the current buffer
-                                 
+
 *:Pyrun*                                                                   *Pyrun*
     Run current buffer
+
+*:PyToggleShowResults*                                       *PyToggleShowResults*
+    Enable, disable showing of stdout after running.
 
 
 ==============================================================================

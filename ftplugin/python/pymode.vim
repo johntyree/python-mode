@@ -12,7 +12,6 @@ if pymode#Option('syntax')
     let python_highlight_all=1
 endif
 
-
 " Options {{{
 
 " Python other options
@@ -108,6 +107,11 @@ if pymode#Option('run')
 
     " DESC: Set commands
     command! -buffer -nargs=0 -range=% Pyrun call pymode#run#Run(<f-line1>, <f-line2>)
+
+    " DESC: Decide if results are shown or not
+    call pymode#Default('g:pymode_run_show_result', 1)
+    command! -buffer -nargs=0 PyToggleShowResult call pymode#Toggle('g:pymode_run_show_result', 'Show Result')
+
 
     " DESC: Set keys
     exe "nnoremap <silent> <buffer> " g:pymode_run_key ":Pyrun<CR>"

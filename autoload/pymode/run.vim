@@ -4,17 +4,17 @@ fun! pymode#run#Run(line1, line2) "{{{
     py import StringIO
     py sys.stdout, _ = StringIO.StringIO(), sys.stdout
     call pymode#WideMessage("Code running.")
+
     try
         py execfile(vim.eval('expand("%s:p")'))
         py sys.stdout, out = _, sys.stdout.getvalue()
-        call pymode#TempBuffer()
-        py vim.current.buffer.append(out.split('\n'), 0)
-        wincmd p
+        if g:pymode_run_show_result
+            call pymode#TempBuffer()
+            py vim.current.buffer.append(out.split('\n'), 0)
+            wincmd p
+        endif
         call pymode#WideMessage("")
-
     catch /.*/
-
         echohl Error | echo "Run-time error." | echohl none
-        
     endtry
 endfunction "}}}
