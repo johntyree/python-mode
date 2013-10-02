@@ -1,1 +1,1 @@
-python.vim
+runtime after/indent/python.vim
